@@ -28,11 +28,13 @@
         <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+
+    </head>
         
         <body>
 
             <div id="wrapper">
-    
+                @auth
                 <!-- Navigation -->
                 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                     <div class="navbar-header">
@@ -115,7 +117,8 @@
                                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                <li>
+                                    <a class="btn btn-danger" href="{{ route('logout') }}">Logout</a>
                                 </li>
                             </ul>
                         </li>
@@ -737,7 +740,7 @@
                                             <li class="left clearfix">
                                                     <span class="chat-img pull-left">
                                                         <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar"
-                                                             class="img-circle"/>
+                                                            class="img-circle"/>
                                                     </span>
     
                                                 <div class="chat-body clearfix">
@@ -834,6 +837,10 @@
                     </div>
                     <!-- /.container-fluid -->
                 </div>
+                @endauth
+                @guest
+                <script>window.location = "/login";</script>
+                @endguest
                 <!-- /#page-wrapper -->
     
             </div>
